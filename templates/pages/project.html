@@ -1,4 +1,8 @@
-    <!--======== Project Page Banner Start ========-->
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!--======== Project Page Banner Start =========-->
     <section class="rs-page-banner">
         <div class="container">
             <div class="row">
@@ -24,7 +28,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-1.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-1.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -47,7 +51,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-2.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-2.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -70,7 +74,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-3.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-3.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -93,7 +97,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-4.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-4.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -116,7 +120,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-5.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-5.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -139,7 +143,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-2.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-2.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -162,7 +166,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-3.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-3.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -185,7 +189,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-4.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-4.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -208,7 +212,7 @@
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="assets/images/project/portfolio-item-5.jpg" alt="">
+                                <img src="{% static 'assets/images/project/portfolio-item-5.jpg' %}" alt="">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
@@ -248,7 +252,8 @@
             </div>
         </div>
         <div class="rs-thumb">
-            <img src="assets/images/project/call_to_action_man.png" alt="">
+            <img src="{% static 'assets/images/project/call_to_action_man.png' %}" alt="">
         </div>
     </section>
     <!--======== Project Cta Ends ========-->
+{% endblock %}

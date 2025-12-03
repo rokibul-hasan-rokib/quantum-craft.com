@@ -1,11 +1,15 @@
-    <!--======== Blog Single Page Start ========-->
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!--======== Blog Single Page Start =========-->
     <section class="rs-blog-single-page pt-80 pb-120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="rs-blog-single-page__content mt-40">
                         <div class="rs-thumb pb-45">
-                            <img src="assets/images/blog/column-blog-7.jpg" alt="">
+                            <img src="{% static 'assets/images/blog/column-blog-7.jpg' %}" alt="">
                         </div>
                         <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality.</p>
                         <p class="mt-20">Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail.</p>
@@ -14,12 +18,12 @@
                         <div class="row mb-20">
                             <div class="col-lg-6">
                                 <div class="rs-thumb mt-20">
-                                    <img style="border-radius: 10px;" src="assets/images/blog/blog-single-thumb-1.jpg" alt="">
+                                    <img style="border-radius: 10px;" src="{% static 'assets/images/blog/blog-single-thumb-1.jpg' %}" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6 mt-20">
                                 <div class="rs-thumb">
-                                    <img style="border-radius: 10px;" src="assets/images/blog/blog-single-thumb-2.jpg" alt="">
+                                    <img style="border-radius: 10px;" src="{% static 'assets/images/blog/blog-single-thumb-2.jpg' %}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -29,7 +33,7 @@
                             <span><span>- Jhon Henry</span> , CEO at Notero JSC </span>
                         </div>
                         <div class="rs-play">
-                            <img src="assets/images/blog/blog-single-play.jpg" alt="">
+                            <img src="{% static 'assets/images/blog/blog-single-play.jpg' %}" alt="">
                             <div class="play-icon">
                                 <a class="rs-popup-videos" href="https://www.youtube.com/watch?v=5CLmRIHR5Zw"><i class="fa fa-play"></i></a>
                             </div>
@@ -92,7 +96,7 @@
                             <h4 class="rs-sidebar-title">Recent Posts</h4>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-1.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-1.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">10 reliable sources to learn about it solution</a></h5>
@@ -101,7 +105,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-2.png" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-2.png' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html"> How do you become a graphic designer? </a></h5>
@@ -110,7 +114,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-3.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-3.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">Simple guidance for you in web development</a></h5>
@@ -119,7 +123,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-4.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">Techzen App Development Complete Guide </a></h5>
@@ -128,7 +132,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-5.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-5.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html"> Tips to help you build your social media </a></h5>
@@ -165,3 +169,4 @@
         </div>
     </section>
     <!--======== Blog Single Page Ends ========-->
+{% endblock %}

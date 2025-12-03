@@ -1,3 +1,7 @@
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
     <!--======== Appointment Page Banner Start ========-->
     <section class="rs-page-banner">
         <div class="container">
@@ -27,7 +31,7 @@
                             <h2 class="title split-in-fade">Send a question to an expert</h2>
                             <p>Completely synergize resource taxing relationships via premier niche markets professionally.</p>
                         </div>
-                        <form id="contact-form" action="assets/php/contact.php" method="post">
+                        <form id="contact-form" action="assets/php/contact.php' %}" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input-box">
@@ -63,7 +67,8 @@
             </div>
         </div>
         <div class="rs-thumb">
-            <img src="assets/images/appoinment/team_image_large.png" alt="">
+            <img src="{% static 'assets/images/appoinment/team_image_large.png' %}" alt="">
         </div>
     </section>
     <!--======== Appointment Box Ends ========-->
+{% endblock %}

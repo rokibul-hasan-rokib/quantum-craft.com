@@ -1,3 +1,7 @@
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
     <!--======== About Page Banner Start ========-->
     <section class="rs-page-banner">
         <div class="container">
@@ -19,13 +23,13 @@
     <!--======== About Page Start ========-->
     <section id="rs-about" class="rs-about rs-about-page pb-120 pt-120">
         <div class="rs-about__shape">
-            <img src="assets/images/about/arrow-purple-2.svg" alt="">
+            <img src="{% static 'assets/images/about/arrow-purple-2.svg' %}" alt="">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="rs-about__thumb-box">
-                        <img src="assets/images/about/about-image.png" alt="">
+                        <img src="{% static 'assets/images/about/about-image.png' %}" alt="">
                         <div class="rs-about__play-box">
                             <span>Intro</span>
                             <div class="play-icon">
@@ -34,7 +38,7 @@
                         </div>
                         <div class="rs-about__countdown-box">
                             <div class="icon">
-                                <img src="assets/images/about/count-down-experience-icon.svg" alt="">
+                                <img src="{% static 'assets/images/about/count-down-experience-icon.svg' %}" alt="">
                             </div>
                             <div class="coundown-text">
                                 <span><span class="rs-count" >25</span>+</span>
@@ -46,9 +50,9 @@
                 <div class="col-lg-6">
                     <div class="rs-about__box">
                         <div class="top-sub-heading">
-                            <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                             <span>Who We Are</span>
-                            <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                         </div>
                         <h2 class="title split-in-fade">We provide perfect it solutions & technology for any startups.</h2>
                         <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day going forward, a new normal that has evolved from operational X is on the runway.</p>
@@ -116,9 +120,9 @@
                 <div class="col-lg-12">
                     <div class="rs-section-title black">
                         <div class="top-sub-heading">
-                            <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                             <span>Our Feachered Services</span>
-                            <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                         </div>
                         <h2 class="title split-in-fade">We run all kinds of IT services</h2>
                     </div>
@@ -128,11 +132,11 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="rs-featured-2__item">
                         <div class="rs-thumb">
-                            <img src="assets/images/featured/featured-thumb-4.png" alt="">
+                            <img src="{% static 'assets/images/featured/featured-thumb-4.png' %}" alt="">
                         </div>
                         <div class="rs-content">
                             <div class="rs-icon">
-                                <img src="assets/images/featured/features-icon-1.png" alt="">
+                                <img src="{% static 'assets/images/featured/features-icon-1.png' %}" alt="">
                             </div>
                             <h4 class="title"><a href="service-details.html">IT Solutions</a></h4>
                             <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
@@ -145,11 +149,11 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="rs-featured-2__item">
                         <div class="rs-thumb">
-                            <img src="assets/images/featured/featured-thumb-2.png" alt="">
+                            <img src="{% static 'assets/images/featured/featured-thumb-2.png' %}" alt="">
                         </div>
                         <div class="rs-content">
                             <div class="rs-icon">
-                                <img src="assets/images/featured/features-icon-2.png" alt="">
+                                <img src="{% static 'assets/images/featured/features-icon-2.png' %}" alt="">
                             </div>
                             <h4 class="title"><a href="service-details.html">Cyber Security</a></h4>
                             <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
@@ -162,11 +166,11 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="rs-featured-2__item last-item">
                         <div class="rs-thumb">
-                            <img src="assets/images/featured/featured-thumb-3.png" alt="">
+                            <img src="{% static 'assets/images/featured/featured-thumb-3.png' %}" alt="">
                         </div>
                         <div class="rs-content">
                             <div class="rs-icon">
-                                <img src="assets/images/featured/features-icon-3.png" alt="">
+                                <img src="{% static 'assets/images/featured/features-icon-3.png' %}" alt="">
                             </div>
                             <h4 class="title"><a href="service-details.html">Cloud Services</a></h4>
                             <p>Bring to the table win-win survival strategies to ensure proactive domination.</p>
@@ -204,9 +208,9 @@
                     <div class="why-choose-2__content">
                         <div class="rs-section-title black">
                             <div class="top-sub-heading">
-                                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                                <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                                 <span>Why Choose Us</span>
-                                <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                                <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                             </div>
                             <h2 class="title split-in-fade">35+ Years of delivering custom It solutions services.</h2>
                             <p>Bring to the table win-win survival strategies to ensure proactive domination At the end of
@@ -243,11 +247,11 @@
                 <div class="col-lg-6">
                     <div class="rs-why-choose-2__thumb wow fadeInRight" data-wow-duration="1.5s" data-wow-delay="0.4s">
                         <div class="rs-thumb-1">
-                            <img src="assets/images/why-choose/chose-right-left.jpg" alt="">
+                            <img src="{% static 'assets/images/why-choose/chose-right-left.jpg' %}" alt="">
                         </div>
                         <div class="rs-thumb-2">
-                            <img src="assets/images/why-choose/chose-right-right.jpg" alt="">
-                            <img src="assets/images/why-choose/chose-right-bottom.png" alt="">
+                            <img src="{% static 'assets/images/why-choose/chose-right-right.jpg' %}" alt="">
+                            <img src="{% static 'assets/images/why-choose/chose-right-bottom.png' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -270,7 +274,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-counter-2__item">
                         <div class="rs-counter-2__icon">
-                            <img src="assets/images/counter/counter-icon-1.svg" alt="">
+                            <img src="{% static 'assets/images/counter/counter-icon-1.svg' %}" alt="">
                         </div>
                         <div class="rs-counter-2__content">
                             <h4 class="title"><span class="rs-count odometer" data-count="4560">00</span> +</h4>
@@ -281,7 +285,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-counter-2__item item-2">
                         <div class="rs-counter-2__icon">
-                            <img src="assets/images/counter/counter-icon-2.svg" alt="">
+                            <img src="{% static 'assets/images/counter/counter-icon-2.svg' %}" alt="">
                         </div>
                         <div class="rs-counter-2__content">
                             <h4 class="title"><span class="rs-count odometer" data-count="3600">00</span> +</h4>
@@ -292,7 +296,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-counter-2__item item-3">
                         <div class="rs-counter-2__icon">
-                            <img src="assets/images/counter/counter-icon-3.svg" alt="">
+                            <img src="{% static 'assets/images/counter/counter-icon-3.svg' %}" alt="">
                         </div>
                         <div class="rs-counter-2__content">
                             <h4 class="title"><span class="rs-count odometer" data-count="2750">00</span> +</h4>
@@ -303,7 +307,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-counter-2__item item-4">
                         <div class="rs-counter-2__icon">
-                            <img src="assets/images/counter/counter-icon-4.svg" alt="">
+                            <img src="{% static 'assets/images/counter/counter-icon-4.svg' %}" alt="">
                         </div>
                         <div class="rs-counter-2__content">
                             <h4 class="title"><span class="rs-count odometer" data-count="1200">00</span> +</h4>
@@ -324,13 +328,13 @@
                     <div class="rs-testimonial-2__left-content">
                         <div class="rs-section-title black">
                             <div class="top-sub-heading">
-                                <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                                <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                                 <span>Testimonials </span>
-                                <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                                <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                             </div>
                             <h2 class="title split-in-fade">What happy clients says about us?</h2>
                             <div class="rs-thumb">
-                                <img src="assets/images/testimonial/testimonial-left-img.jpg" alt="">
+                                <img src="{% static 'assets/images/testimonial/testimonial-left-img.jpg' %}" alt="">
                             </div>
                         </div>
                     </div>
@@ -340,81 +344,81 @@
                         <div class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="0" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="true" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="true" data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="true" data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-md-device="1" data-lg-device="1" data-md-device-nav="false" data-md-device-dots="true" data-doteach="true">
                             <div class="rs-testimonial-2__items">
                                 <div class="testimonial-content">
-                                    <img src="assets/images/testimonial/quote_orange.svg" alt="">
+                                    <img src="{% static 'assets/images/testimonial/quote_orange.svg' %}" alt="">
                                     <p>Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality. Podcasting operational change management inside of workflows to establish a framework.</p>
                                 </div>
                                 <div class="testimonial-author">
                                     <div class="author-thumb">
-                                        <img src="assets/images/testimonial/testi1.jpg" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testi1.jpg' %}" alt="">
                                     </div>
                                     <div class="author-content">
                                         <h5 class="title">Martins Ana</h5>
                                         <span>CEO, Bribbble LLC</span>
-                                        <img src="assets/images/testimonial/testimonial-brsnd-2.png" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testimonial-brsnd-2.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="rs-testimonial-2__items">
                                 <div class="testimonial-content">
-                                    <img src="assets/images/testimonial/quote_orange.svg" alt="">
+                                    <img src="{% static 'assets/images/testimonial/quote_orange.svg' %}" alt="">
                                     <p>Keeping your eye on the ball while performing a deep dive on the start-up mentality. Taking seamless key performance indicators offline to maximise the long tail.  Podcasting operational change management inside of workflows to establish a framework.</p>
                                 </div>
                                 <div class="testimonial-author">
                                     <div class="author-thumb">
-                                        <img src="assets/images/testimonial/testi2.jpg" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testi2.jpg' %}" alt="">
                                     </div>
                                     <div class="author-content">
                                         <h5 class="title">Robards Lynda</h5>
                                         <span>Company SEO, Google</span>
-                                        <img src="assets/images/testimonial/testimonial-brsnd-2.png" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testimonial-brsnd-2.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="rs-testimonial-2__items">
                                 <div class="testimonial-content">
-                                    <img src="assets/images/testimonial/quote_orange.svg" alt="">
+                                    <img src="{% static 'assets/images/testimonial/quote_orange.svg' %}" alt="">
                                     <p>Operational  podcasting change management inside of workflows to establish a framework . Keeping your eye on the ball while performing a deep dive on the start-up mentality. Taking seamless key performance indicators offline to maximize the long tail.</p>
                                 </div>
                                 <div class="testimonial-author">
                                     <div class="author-thumb">
-                                        <img src="assets/images/testimonial/testi3.jpg" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testi3.jpg' %}" alt="">
                                     </div>
                                     <div class="author-content">
                                         <h5 class="title">Taylor Matthew</h5>
                                         <span>SEO & Founder, Facebook</span>
-                                        <img src="assets/images/testimonial/testimonial-brsnd-2.png" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testimonial-brsnd-2.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="rs-testimonial-2__items">
                                 <div class="testimonial-content">
-                                    <img src="assets/images/testimonial/quote_orange.svg" alt="">
+                                    <img src="{% static 'assets/images/testimonial/quote_orange.svg' %}" alt="">
                                     <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality.</p>
                                 </div>
                                 <div class="testimonial-author">
                                     <div class="author-thumb">
-                                        <img src="assets/images/testimonial/testi4.jpg" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testi4.jpg' %}" alt="">
                                     </div>
                                     <div class="author-content">
                                         <h5 class="title">Ribeiro Nicolas</h5>
                                         <span>HR, Envato</span>
-                                        <img src="assets/images/testimonial/testimonial-brsnd-2.png" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testimonial-brsnd-2.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="rs-testimonial-2__items">
                                 <div class="testimonial-content">
-                                    <img src="assets/images/testimonial/quote_orange.svg" alt="">
+                                    <img src="{% static 'assets/images/testimonial/quote_orange.svg' %}" alt="">
                                     <p>Operational   establish to Podcasting change management inside of workflows a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality.</p>
                                 </div>
                                 <div class="testimonial-author">
                                     <div class="author-thumb">
-                                        <img src="assets/images/testimonial/testi5.jpg" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testi5.jpg' %}" alt="">
                                     </div>
                                     <div class="author-content">
                                         <h5 class="title">Howard Esther</h5>
                                         <span>CEO, Bribbble LLC</span>
-                                        <img src="assets/images/testimonial/testimonial-brsnd-2.png" alt="">
+                                        <img src="{% static 'assets/images/testimonial/testimonial-brsnd-2.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -432,9 +436,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="rs-brand__top-title">
-                        <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="">
+                        <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="">
                         <span>More than 5K+ Brands with work Techzen</span>
-                        <img src="assets/images/heart-pulse-rate-orange.svg" alt="">
+                        <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -444,50 +448,50 @@
                         <div class="rs-carousel owl-carousel nav-style1" data-loop="true" data-items="5" data-margin="0" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="3000" data-smart-speed="500" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="3" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4" data-lg-device="5" data-md-device-nav="false" data-md-device-dots="false" data-doteach="false">
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner1.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-1.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner1.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-1.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner2.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-2.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner2.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-2.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner3.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-3.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner3.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-3.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner4.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-4.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner4.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-4.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner5.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-5.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner5.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-5.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner6.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-6.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner6.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-6.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner7.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-7.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner7.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-7.png' %}" alt="">
                                 </a>
                             </div>
                             <div class="rs-brand-slider-item">
                                 <a href="#">
-                                    <img src="assets/images/brand/partner8.png" alt="">
-                                    <img class="item-2" src="assets/images/brand/partner-white-8.png" alt="">
+                                    <img src="{% static 'assets/images/brand/partner8.png' %}" alt="">
+                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-8.png' %}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -497,3 +501,4 @@
         </div>
     </div>
     <!--======== Brand 2 Ends ========-->
+{% endblock %}

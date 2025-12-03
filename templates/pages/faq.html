@@ -1,4 +1,8 @@
-    <!--======== Faq Page Banner Start ========-->
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!--======== Faq Page Banner Start =========-->
     <section class="rs-page-banner">
         <div class="container">
             <div class="row">
@@ -103,7 +107,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="rs-faq-page__thumb">
-                        <img src="assets/images/faq/faq-left-img.png" alt="">
+                        <img src="{% static 'assets/images/faq/faq-left-img.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -119,15 +123,15 @@
                 <div class="col-lg-5">
                     <div class="rs-section-title black">
                         <div class="top-sub-heading">
-                            <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                             <span>Contact Us</span>
-                            <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
 
                         </div>
                         <h2 class="title split-in-fade">Send message</h2>
                     </div>
                     <div class="rs-contact__form-box">
-                        <form id="contact-form" action="assets/php/contact.php" method="post">
+                        <form id="contact-form" action="assets/php/contact.php' %}" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input-box">
@@ -163,14 +167,15 @@
             </div>
         </div>
         <div class="rs-contact__thumb">
-            <img src="assets/images/contact/contact-man.png" alt="">
-            <img class="item-2" src="assets/images/contact/contact-image02.png" alt="">
+            <img src="{% static 'assets/images/contact/contact-man.png' %}" alt="">
+            <img class="item-2" src="{% static 'assets/images/contact/contact-image02.png' %}" alt="">
         </div>
         <div class="rs-contact__shape1">
-            <img src="assets/images/contact/circle-plus.svg" alt="">
+            <img src="{% static 'assets/images/contact/circle-plus.svg' %}" alt="">
         </div>
         <div class="rs-contact__shape2">
-            <img src="assets/images/contact/contact_arrow_right.png" alt="">
+            <img src="{% static 'assets/images/contact/contact_arrow_right.png' %}" alt="">
         </div>
     </section>
     <!--======== Faq Contact Ends ========-->
+{% endblock %}

@@ -1,4 +1,8 @@
-    <!--======== Blog Standard Page Banner Start ========-->
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!--======== Blog Standard Page Banner Start =========-->
     <section class="rs-page-banner">
         <div class="container">
             <div class="row">
@@ -25,7 +29,7 @@
                         <div class="rs-blog-standard-item mb-50">
                             <div class="rs-thumb">
                                 <a href="blog-single.html">
-                                    <img src="assets/images/blog/standaed-thumb-1.jpg" alt="">
+                                    <img src="{% static 'assets/images/blog/standaed-thumb-1.jpg' %}" alt="">
                                 </a>
                                 <div class="rs-meta-box">
                                     <ul>
@@ -46,7 +50,7 @@
                         <div class="rs-blog-standard-item mb-50">
                             <div class="rs-thumb">
                                 <a href="blog-single.html">
-                                    <img src="assets/images/blog/standaed-thumb-2.png" alt="">
+                                    <img src="{% static 'assets/images/blog/standaed-thumb-2.png' %}" alt="">
                                 </a>
                                 <div class="rs-meta-box">
                                     <ul>
@@ -67,7 +71,7 @@
                         <div class="rs-blog-standard-item">
                             <div class="rs-thumb">
                                 <a href="blog-single.html">
-                                    <img src="assets/images/blog/standaed-thumb-3.jpg" alt="">
+                                    <img src="{% static 'assets/images/blog/standaed-thumb-3.jpg' %}" alt="">
                                 </a>
                                 <div class="rs-meta-box">
                                     <ul>
@@ -120,7 +124,7 @@
                             <h4 class="rs-sidebar-title">Recent Posts</h4>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-1.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-1.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">10 reliable sources to learn about it solution</a></h5>
@@ -129,7 +133,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-2.png" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-2.png' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html"> How do you become a graphic designer? </a></h5>
@@ -138,7 +142,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-3.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-3.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">Simple guidance for you in web development</a></h5>
@@ -147,7 +151,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item mb-25">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-4.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html">Techzen App Development Complete Guide </a></h5>
@@ -156,7 +160,7 @@
                             </div>
                             <div class="rs-blog-sidebar-item">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="assets/images/blog/side-blog-5.jpg" alt=""></a>
+                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-5.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="rs-content">
                                     <h5 class="title"><a href="blog-single.html"> Tips to help you build your social media </a></h5>
@@ -193,3 +197,4 @@
         </div>
     </section>
     <!--======== Blog Standard Page Ends ========-->
+{% endblock %}

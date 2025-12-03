@@ -1,4 +1,8 @@
-    <!--======== Team Page Banner Start ========-->
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!--======== Team Page Banner Start =========-->
     <section class="rs-page-banner">
         <div class="container">
             <div class="row">
@@ -23,9 +27,9 @@
                 <div class="col-lg-6">
                     <div class="rs-section-title black">
                         <div class="top-sub-heading">
-                            <img src="assets/images/heart-pulse-rate-orange-2.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange-2.svg' %}" alt="icon">
                             <span>Profesional People</span>
-                            <img src="assets/images/heart-pulse-rate-orange.svg" alt="icon">
+                            <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                         </div>
                         <h2 class="title split-in-fade">Meet our expert team member</h2>
                     </div>
@@ -40,7 +44,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_5.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_5.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -61,7 +65,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_1.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_1.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -82,7 +86,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_2.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_2.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -103,7 +107,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_4.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_4.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -124,7 +128,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_2.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_2.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -145,7 +149,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_5.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_5.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -166,7 +170,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_7.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_7.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -187,7 +191,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="assets/images/team/team_img_6.jpg" alt="">
+                            <img src="{% static 'assets/images/team/team_img_6.jpg' %}" alt="">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
@@ -209,3 +213,4 @@
         </div>
     </section>
     <!--======== Team Grid Ends ========-->
+{% endblock %}

@@ -1,4 +1,8 @@
-    <!--======== Service Details Page Banner Start ========-->
+{% load static %}
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <!--======== Service Details Page Banner Start =========-->
     <section class="rs-page-banner">
         <div class="container">
             <div class="row">
@@ -23,7 +27,7 @@
                 <div class="col-lg-8">
                     <div class="rs-service-details__content">
                         <div class="rs-thumb">
-                            <img src="assets/images/service/service-details-thumb-1.jpg" alt="">
+                            <img src="{% static 'assets/images/service/service-details-thumb-1.jpg' %}" alt="">
                         </div>
                         <div class="rs-content">
                             <h3 class="title">Digital Marketing</h3>
@@ -35,7 +39,7 @@
                             <h3 class="title mt-30">Working challenge</h3>
                             <div class="rs-service-list-box">
                                 <div class="rs-thumb">
-                                    <img src="assets/images/service/service-detail-small-img.jpg" alt="">
+                                    <img src="{% static 'assets/images/service/service-detail-small-img.jpg' %}" alt="">
                                 </div>
                                 <div class="rs-list">
                                     <ul>
@@ -141,3 +145,4 @@
         </div>
     </section>
     <!--======== Service Details 1 Ends ========-->
+{% endblock %}

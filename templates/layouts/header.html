@@ -9,11 +9,11 @@
                 <div class="container custom-container">
                     <div class="rs-menu-area">
                         <div class="logo-area">
-                            <a href="index.html">
+                            <a href="{% url 'index' %}">
                                 <img src="{% static 'assets/images/techzen_logo_home.png' %}" alt="">
                                 <img class="dark-logo" src="{% static 'assets/images/footer_logo.png' %}" alt="">
                             </a>
-                            <a href="index.html">
+                            <a href="{% url 'index' %}">
                                 <img src="{% static 'assets/images/techzen_logo_home.png' %}" alt="">
                                 <img class="dark-logo" src="{% static 'assets/images/footer_logo.png' %}" alt="">
                             </a>
@@ -22,13 +22,13 @@
                             <div class="main-menu hidden-md">
                                 <ul class="nav-menu">
                                     <li>
-                                        <a href="index.html" class="active">Home</a>
+                                        <a href="{% url 'index' %}" class="active">Home</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About</a>
+                                        <a href="{% url 'about' %}">About</a>
                                     </li>
                                     <li>
-                                        <a href="service-1.html">Services</a>
+                                        <a href="{% url 'service' %}">Services</a>
                                     </li>
                                     <li class="has-clid relative">
                                         <a href="#">
@@ -39,25 +39,25 @@
                                         </a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="project.html">Project</a>
+                                                <a href="{% url 'project' %}">Project</a>
                                             </li>
                                             <li>
-                                                <a href="project-details.html">Project Details</a>
+                                                <a href="#">Project Details</a>
                                             </li>
                                             <li>
-                                                <a href="team.html">Team</a>
+                                                <a href="{% url 'team' %}">Team</a>
                                             </li>
                                             <li>
-                                                <a href="team-details.html">Team Details</a>
+                                                <a href="#">Team Details</a>
                                             </li>
                                             <li>
-                                                <a href="pricing.html">Pricing</a>
+                                                <a href="{% url 'pricing' %}">Pricing</a>
                                             </li>
                                             <li>
-                                                <a href="faq.html">Faq</a>
+                                                <a href="{% url 'faq' %}">Faq</a>
                                             </li>
                                             <li>
-                                                <a href="appointment.html">Appointment</a>
+                                                <a href="{% url 'appointment' %}">Appointment</a>
                                             </li>
                                             <li class="has-clid">
                                                 <a href="shop.html"> Shop <i class="fa fa-angle-down"></i></a>
@@ -82,9 +82,9 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="blog-standard.html">Blog</a>
+                                        <a href="{% url 'blog' %}">Blog</a>
                                     </li>
-                                    <li><a href="contact.html">Contact</a> </li>
+                                    <li><a href="{% url 'contact' %}">Contact</a> </li>
                                 </ul> <!-- //.nav-menu -->
                             </div> <!-- //.main-menu -->
                             <div class="rs-header-contct">
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             <div class="header-btn">
-                                <a class="main-btn" href="contact.html">Get a Quote <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <a class="main-btn" href="{% url 'contact' %}">Get a Quote <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                         <path d="M12 13H4V11H12V4L20 12L12 20V13Z"></path>
                                     </svg></a>
                             </div>
