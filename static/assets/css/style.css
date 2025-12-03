@@ -2010,7 +2010,7 @@ hr {
   height: 100%;
   visibility: hidden;
   top: 0;
-  cursor: url(assets/images/close-line-dark.png), auto;
+  cursor: url(../images/close-line-dark.png), auto;
 }
 
 html.menu-is-open .offcanvas-menu {
