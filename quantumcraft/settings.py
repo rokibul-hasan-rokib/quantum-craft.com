@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j9ckqyk&!a+2p02l7y=quag3-*cu=+b$*2p$akt%w=a!lts+3n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['quantumcraft.cloud', 'www.quantumcraft.cloud', 'localhost', '127.0.0.1']
 
 
 # Application definition
