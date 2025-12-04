@@ -2988,7 +2988,7 @@ html.menu-is-open .menu-canvas-layer {
   background-position: center;
   position: relative;
   z-index: 10;
-  background-image: url(../images/banner/home-banner-bg.jpg);
+  background-image: url(../images/banner/home_3.jfif);
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rs-banner--slider-item {
