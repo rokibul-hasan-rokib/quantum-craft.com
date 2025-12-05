@@ -3434,7 +3434,7 @@ html.menu-is-open .menu-canvas-layer {
   }
 }
 .rs-banner-2 {
-  background-image: url(../images/banner/home-banner-bg-2.jpg);
+  background-image: url(../images/banner/home_3.jfif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -3714,7 +3714,7 @@ html.menu-is-open .menu-canvas-layer {
 .rs-banner-4 {
   padding-top: 186px;
   padding-bottom: 200px;
-  background-image: url(../images/banner/home-4-banner.jpg);
+  background-image: url(../images/banner/home_3.jfif);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -4244,7 +4244,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 
 .rs-page-banner {
-  background-image: url(../images/banner/inner_bg.png);
+  background-image: url(../images/banner/home_3.jfif);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
