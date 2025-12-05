@@ -26,69 +26,43 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="rs-blog-standard-page__box mt-40">
+                        {% for blog in blogs %}
                         <div class="rs-blog-standard-item mb-50">
                             <div class="rs-thumb">
-                                <a href="blog-single.html">
-                                    <img src="{% static 'assets/images/blog/standaed-thumb-1.jpg' %}" alt="">
+                                <a href="{% url 'blog_details' %}">
+                                    <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
                                 </a>
                                 <div class="rs-meta-box">
                                     <ul>
-                                        <li><i class="ri-user-3-line"></i> Techzen</li>
-                                        <li><i class="ri-calendar-line"></i> March 17, 2023</li>
-                                        <li><a href="#"><i class="ri-price-tag-3-line"></i> Design</a></li>
+                                        <li><i class="ri-user-3-line"></i> {{ blog.author_name }}</li>
+                                        <li><i class="ri-calendar-line"></i> {{ blog.created_at|date:"F d, Y" }}</li>
+                                        {% if blog.category %}
+                                        <li><a href="#"><i class="ri-price-tag-3-line"></i> {{ blog.category.name }}</a></li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
                             <div class="rs-content">
-                                <h2 class="title"><a href="blog-single.html">10 reliable sources to learn about it solution</a></h2>
-                                <p> Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball...</p>
+                                <h2 class="title"><a href="{% url 'blog_details' %}">{{ blog.title }}</a></h2>
+                                <p>{{ blog.excerpt }}</p>
+                                {% if blog.tags.exists %}
+                                <div class="rs-tags mb-3">
+                                    <strong>Tags: </strong>
+                                    {% for tag in blog.tags.all %}
+                                    <span class="badge bg-secondary me-1">{{ tag.name }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
                                 <div class="rs-link">
-                                    <a class="main-btn-2" href="blog-single.html">Continue Reading <i class="ri-arrow-right-fill"></i></a>
+                                    <a class="main-btn-2" href="{% url 'blog_details' %}">Continue Reading <i class="ri-arrow-right-fill"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="rs-blog-standard-item mb-50">
-                            <div class="rs-thumb">
-                                <a href="blog-single.html">
-                                    <img src="{% static 'assets/images/blog/standaed-thumb-2.png' %}" alt="">
-                                </a>
-                                <div class="rs-meta-box">
-                                    <ul>
-                                        <li><i class="ri-user-3-line"></i> Techzen</li>
-                                        <li><i class="ri-calendar-line"></i> March 17, 2023</li>
-                                        <li><a href="#"><i class="ri-price-tag-3-line"></i> Design</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="rs-content">
-                                <h2 class="title"><a href="blog-single.html">How do you become a graphic designer? </a></h2>
-                                <p> Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball...</p>
-                                <div class="rs-link">
-                                    <a class="main-btn-2" href="blog-single.html">Continue Reading <i class="ri-arrow-right-fill"></i></a>
-                                </div>
-                            </div>
+                        {% empty %}
+                        <div class="col-lg-12">
+                            <p class="text-center">No blog posts available at the moment.</p>
                         </div>
-                        <div class="rs-blog-standard-item">
-                            <div class="rs-thumb">
-                                <a href="blog-single.html">
-                                    <img src="{% static 'assets/images/blog/standaed-thumb-3.jpg' %}" alt="">
-                                </a>
-                                <div class="rs-meta-box">
-                                    <ul>
-                                        <li><i class="ri-user-3-line"></i> Techzen</li>
-                                        <li><i class="ri-calendar-line"></i> March 17, 2023</li>
-                                        <li><a href="#"><i class="ri-price-tag-3-line"></i> Design</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="rs-content">
-                                <h2 class="title"><a href="blog-single.html">Simple guidance for you in web development</a></h2>
-                                <p> Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball...</p>
-                                <div class="rs-link">
-                                    <a class="main-btn-2" href="blog-single.html">Continue Reading <i class="ri-arrow-right-fill"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                         <div class="rs-shop-page__breadcrumb">
                             <ul>
                                 <li><a class="active" href="#"><span>1</span></a></li>
@@ -112,73 +86,37 @@
                         <div class="rs-blog-category rs-blog-common mt-40">
                             <h4 class="rs-sidebar-title">Categories</h4>
                             <ul>
-                                <li><a href="blog-single.html">Application <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Cyber <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Design <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Digital <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Software <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Technology <i class="ri-arrow-right-fill"></i></a></li>
+                                {% for category in categories %}
+                                <li><a href="#">{{ category.name }} <i class="ri-arrow-right-fill"></i></a></li>
+                                {% empty %}
+                                <li>No categories available</li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="rs-blog-sidebar-post rs-blog-common mt-40">
                             <h4 class="rs-sidebar-title">Recent Posts</h4>
-                            <div class="rs-blog-sidebar-item mb-25">
+                            {% for post in recent_posts %}
+                            <div class="rs-blog-sidebar-item {% if not forloop.last %}mb-25{% endif %}">
                                 <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-1.jpg' %}" alt=""></a>
+                                    <a href="{% url 'blog_details' %}"><img src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a>
                                 </div>
                                 <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">10 reliable sources to learn about it solution</a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
+                                    <h5 class="title"><a href="{% url 'blog_details' %}">{{ post.title|truncatewords:8 }}</a></h5>
+                                    <span><i class="ri-calendar-line"></i> {{ post.created_at|date:"F d, Y" }} </span>
                                 </div>
                             </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-2.png' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html"> How do you become a graphic designer? </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-3.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">Simple guidance for you in web development</a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-4.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">Techzen App Development Complete Guide </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-5.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html"> Tips to help you build your social media </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
+                            {% empty %}
+                            <p>No recent posts available</p>
+                            {% endfor %}
                         </div>
                         <div class="rs-blog-tags rs-blog-common mt-40">
                             <h4 class="rs-sidebar-title">Tags</h4>
                             <ul>
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">Consulting</a></li>
-                                <li><a href="#">Cyber</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Digital</a></li>
-                                <li><a href="#">Software</a></li>
-                                <li><a href="#">Technology</a></li>
+                                {% for tag in tags %}
+                                <li><a href="#">{{ tag.name }}</a></li>
+                                {% empty %}
+                                <li>No tags available</li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="rs-blog-social rs-blog-common mt-40">

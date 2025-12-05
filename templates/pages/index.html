@@ -1019,102 +1019,33 @@
                 <div class="col-lg-3"></div>
             </div>
             <div class="rs-carousel owl-carousel rs-team__slider-box" data-loop="true" data-items="4" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="true" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="false" data-ipad-device="3" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="3" data-lg-device="4" data-md-device-nav="true" data-md-device-dots="false" data-doteach="false">
+                {% for member in teams %}
                 <div class="rs-team__single-item">
                     <div class="rs-thumb-wrap">
                         <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_5.jpg' %}" alt="">
+                            <img src="{{ member.image.url }}" alt="{{ member.name }}">
                             <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
+                                {% if member.facebook_url %}
+                                <a href="{{ member.facebook_url }}" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                                {% endif %}
+                                {% if member.instagram_url %}
+                                <a href="{{ member.instagram_url }}" target="_blank"><i class="fa fa-instagram"></i></a>
+                                {% endif %}
+                                {% if member.twitter_url %}
+                                <a href="{{ member.twitter_url }}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                {% endif %}
+                                {% if member.linkedin_url %}
+                                <a href="{{ member.linkedin_url }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="content">
-                        <a href="team-details.html">John Bradshaw</a>
-                        <span>Senior Advisor</span>
+                        <a href="#">{{ member.name }}</a>
+                        <span>{{ member.designation }}</span>
                     </div>
                 </div>
-                <div class="rs-team__single-item">
-                    <div class="rs-thumb-wrap">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_1.jpg' %}" alt="">
-                            <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a href="team-details.html">Nick Powel</a>
-                        <span>Leader</span>
-                    </div>
-                </div>
-                <div class="rs-team__single-item">
-                    <div class="rs-thumb-wrap">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_2.jpg' %}" alt="">
-                            <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a href="team-details.html">Elizabeth Layla</a>
-                        <span>Designer</span>
-                    </div>
-                </div>
-                <div class="rs-team__single-item">
-                    <div class="rs-thumb-wrap">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_4.jpg' %}" alt="">
-                            <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a href="team-details.html">Paul Walker</a>
-                        <span>Director</span>
-                    </div>
-                </div>
-                <div class="rs-team__single-item">
-                    <div class="rs-thumb-wrap">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_6.jpg' %}" alt="">
-                            <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a href="team-details.html">Patricia Gable</a>
-                        <span>Marketing manager</span>
-                    </div>
-                </div>
-                <div class="rs-team__single-item">
-                    <div class="rs-thumb-wrap">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_7.jpg' %}" alt="">
-                            <div class="rs-team-social">
-                                <a href=""><i class="fa fa-facebook-f"></i></a>
-                                <a href=""><i class="fa fa-instagram"></i></a>
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <a href="team-details.html">Amber Austin</a>
-                        <span>Operation Manager</span>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -1162,10 +1093,11 @@
                 </div>
             </div>
             <div class="row">
+                {% for blog in blogs %}
                 <div class="col-lg-4">
                     <div class="rs-blog__single">
                         <div class="thumb">
-                            <img src="{% static 'assets/images/blog/blog-1.jpg' %}" alt="">
+                            <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
                             <div class="rs-contact-icon">
                                 <a href="#"><svg width="14" height="16" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.70371 13.1768L7.90054e-06 14L0.823208 10.2963C0.28108 9.28226 -0.00172329 8.14985 7.90054e-06 7C7.90054e-06 3.1339 3.13391 0 7 0C10.8661 0 14 3.1339 14 7C14 10.8661 10.8661 14 7 14C5.85015 14.0017 4.71774 13.7189 3.70371 13.1768Z" fill="white"></path>
@@ -1175,119 +1107,44 @@
                         <div class="content">
                             <div class="rs-blog-category">
                                 <a href="#">
-                                    <div class="icon"></div>Application
+                                    <div class="icon"></div>{{ blog.category.name|default:"Uncategorized" }}
                                 </a>
                             </div>
                             <h3 class="title">
-                                <a href="blog-single.html">Tips to help you build your social media</a>
+                                <a href="{% url 'blog_details' %}">{{ blog.title }}</a>
                             </h3>
                             <ul>
-                                <li>Mar 16, 2023</li>
+                                <li>{{ blog.created_at|date:"M d, Y" }}</li>
                                 <li>
-                                    <div class="rs-icon"></div> 8 min read
+                                    <div class="rs-icon"></div> {{ blog.read_time }}
                                 </li>
                             </ul>
-                            <p>Podcasting operational change management inside of workflows to establish a...</p>
+                            <p>{{ blog.excerpt|truncatewords:20 }}</p>
                             <div class="rs-blog-author">
                                 <div class="user">
                                     <a href="#">
                                         <div class="author-thumb">
-                                            <img src="{% static 'assets/images/testimonial/testi1.jpg' %}" alt="">
+                                            {% if blog.author_image %}
+                                            <img src="{{ blog.author_image.url }}" alt="{{ blog.author_name }}">
+                                            {% else %}
+                                            <img src="{% static 'assets/images/testimonial/testi1.jpg' %}" alt="{{ blog.author_name }}">
+                                            {% endif %}
                                         </div>
-                                        <span>by QuantumCraft</span>
+                                        <span>by {{ blog.author_name }}</span>
                                     </a>
                                 </div>
                                 <div class="rs-link">
-                                    <a href="blog-single.html">Read Post <i class="ri-arrow-right-fill"></i></a>
+                                    <a href="{% url 'blog_details' %}">Read Post <i class="ri-arrow-right-fill"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="rs-blog__single">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/blog/blog-2.jpg' %}" alt="">
-                            <div class="rs-contact-icon">
-                                <a href="#"><svg width="14" height="16" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3.70371 13.1768L7.90054e-06 14L0.823208 10.2963C0.28108 9.28226 -0.00172329 8.14985 7.90054e-06 7C7.90054e-06 3.1339 3.13391 0 7 0C10.8661 0 14 3.1339 14 7C14 10.8661 10.8661 14 7 14C5.85015 14.0017 4.71774 13.7189 3.70371 13.1768Z" fill="white"></path>
-                                    </svg></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="rs-blog-category">
-                                <a href="#">
-                                    <div class="icon"></div> Technology
-                                </a>
-                            </div>
-                            <h3 class="title">
-                                <a href="blog-single.html">Tips to help you build your social media</a>
-                            </h3>
-                            <ul>
-                                <li>Mar 16, 2023</li>
-                                <li>
-                                    <div class="rs-icon"></div> 8 min read
-                                </li>
-                            </ul>
-                            <p>Podcasting operational change management inside of workflows to establish a...</p>
-                            <div class="rs-blog-author">
-                                <div class="user">
-                                    <a href="#">
-                                        <div class="author-thumb">
-                                            <img src="{% static 'assets/images/testimonial/testi2.jpg' %}" alt="">
-                                        </div>
-                                        <span>by QuantumCraft</span>
-                                    </a>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="blog-single.html">Read Post <i class="ri-arrow-right-fill"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {% empty %}
+                <div class="col-lg-12">
+                    <p class="text-center">No blog posts available at the moment.</p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="rs-blog__single">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/blog/blog-3.jpg' %}" alt="">
-                            <div class="rs-contact-icon">
-                                <a href="#"><svg width="14" height="16" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3.70371 13.1768L7.90054e-06 14L0.823208 10.2963C0.28108 9.28226 -0.00172329 8.14985 7.90054e-06 7C7.90054e-06 3.1339 3.13391 0 7 0C10.8661 0 14 3.1339 14 7C14 10.8661 10.8661 14 7 14C5.85015 14.0017 4.71774 13.7189 3.70371 13.1768Z" fill="white"></path>
-                                    </svg></a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="rs-blog-category">
-                                <a href="#">
-                                    <div class="icon"></div> performance
-                                </a>
-                            </div>
-                            <h3 class="title">
-                                <a href="blog-single.html">Tips to help you build your social media</a>
-                            </h3>
-                            <ul>
-                                <li>Mar 16, 2023</li>
-                                <li>
-                                    <div class="rs-icon"></div> 8 min read
-                                </li>
-                            </ul>
-                            <p>Podcasting operational change management inside of workflows to establish a...</p>
-                            <div class="rs-blog-author">
-                                <div class="user">
-                                    <a href="#">
-                                        <div class="author-thumb">
-                                            <img src="{% static 'assets/images/testimonial/testi3.jpg' %}" alt="">
-                                        </div>
-                                        <span>by QuantumCraft</span>
-                                    </a>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="blog-single.html">Read Post <i class="ri-arrow-right-fill"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="rs-blog__btn">
                 <a class="main-btn" href="blog-standard.html">View All Blog <i class="ri-arrow-right-fill"></i></a>
