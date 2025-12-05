@@ -24,213 +24,41 @@
         <div class="rs-project-3__slider">
             <div class="container">
                 <div class="row">
+                    {% for project in projects %}
                     <div class="col-lg-4">
                         <div class="rs-project-3__item">
                             <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-1.jpg' %}" alt="">
+                                <img src="{{ project.image.url }}" alt="{{ project.title }}">
                             </div>
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
                                     <div class="rs-title">
-                                        <a href="project-details.html">Creative Agency</a>
+                                        <a href="#">{{ project.title }}</a>
                                     </div>
                                     <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Branding</a></span>
+                                        {% if project.category %}
+                                        <span><i class="ri-price-tag-3-line"></i><a href="#">{{ project.category.name }}</a></span>
+                                        {% endif %}
                                     </div>
                                     <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
+                                        <p>{{ project.description|truncatewords:15 }}</p>
                                     </div>
                                 </div>
                                 <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
+                                    {% if project.project_url %}
+                                    <a href="{{ project.project_url }}" target="_blank"><i class="ri-arrow-right-up-line"></i></a>
+                                    {% else %}
+                                    <a href="#"><i class="ri-arrow-right-up-line"></i></a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-2.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Web Development</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Design</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    {% empty %}
+                    <div class="col-lg-12">
+                        <p class="text-center">No projects available at the moment.</p>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-3.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Infrastructure Upgrade</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Development</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-4.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Data Visualization</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Data</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-5.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Data Visualization</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Data</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-2.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Web Development</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Design</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-3.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Infrastructure Upgrade</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Development</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-4.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Data Visualization</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Data</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="rs-project-3__item">
-                            <div class="rs-thumb">
-                                <img src="{% static 'assets/images/project/portfolio-item-5.jpg' %}" alt="">
-                            </div>
-                            <div class="rs-project-overlay">
-                                <div class="rs-project-content">
-                                    <div class="rs-title">
-                                        <a href="project-details.html">Data Visualization</a>
-                                    </div>
-                                    <div class="rs-category">
-                                        <span><i class="ri-price-tag-3-line"></i><a href="#">Data</a></span>
-                                    </div>
-                                    <div class="rs-text">
-                                        <p>Completely synergize resource taxing relationships via premier niche markets…</p>
-                                    </div>
-                                </div>
-                                <div class="rs-link">
-                                    <a href="project-details.html"><i class="ri-arrow-right-up-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -116,3 +116,51 @@ class Team(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.designation}"
+
+
+class ProjectCategory(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Project Category'
+        verbose_name_plural = 'Project Categories'
+        ordering = ['name']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
+    description = models.TextField()
+    image = models.ImageField(upload_to='projects/')
+    category = models.ForeignKey(ProjectCategory, on_delete=models.SET_NULL, null=True, related_name='projects')
+    client_name = models.CharField(max_length=100, blank=True)
+    project_url = models.URLField(blank=True, null=True)
+    completion_date = models.DateField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_featured = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = 'Project'
+        verbose_name_plural = 'Projects'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

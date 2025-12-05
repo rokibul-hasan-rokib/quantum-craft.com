@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import Service, Blog, Team, Category, Tag
+from core.models import Service, Blog, Team, Category, Tag, Project
 
 def index(request):
     services = Service.objects.filter(is_active=True)[:6]  # Latest 6 services for home
@@ -46,7 +46,9 @@ def pricing(request):
     return render(request, 'pages/pricing.html')
 
 def project(request):
-    return render(request, 'pages/project.html')
+    projects = Project.objects.filter(is_active=True).select_related('category')
+    context = {'projects': projects}
+    return render(request, 'pages/project.html', context)
 
 def service(request):
     services = Service.objects.filter(is_active=True)

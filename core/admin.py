@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Blog, Team, Category, Tag
+from .models import Service, Blog, Team, Category, Tag, ProjectCategory, Project
 
 
 @admin.register(Category)
@@ -66,3 +66,36 @@ class TeamAdmin(admin.ModelAdmin):
     search_fields = ['name', 'designation']
     list_editable = ['order', 'is_active']
     ordering = ['order', '-created_at']
+
+
+@admin.register(ProjectCategory)
+class ProjectCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug', 'created_at']
+    search_fields = ['name']
+    prepopulated_fields = {'slug': ('name',)}
+    ordering = ['name']
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'client_name', 'is_featured', 'is_active', 'order', 'created_at']
+    list_filter = ['is_active', 'is_featured', 'category', 'created_at']
+    search_fields = ['title', 'description', 'client_name']
+    prepopulated_fields = {'slug': ('title',)}
+    list_editable = ['order', 'is_active', 'is_featured']
+    ordering = ['order', '-created_at']
+    
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('title', 'slug', 'description', 'category')
+        }),
+        ('Media', {
+            'fields': ('image',)
+        }),
+        ('Project Details', {
+            'fields': ('client_name', 'project_url', 'completion_date')
+        }),
+        ('Settings', {
+            'fields': ('is_featured', 'is_active', 'order')
+        }),
+    )
