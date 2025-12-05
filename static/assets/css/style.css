@@ -2988,7 +2988,7 @@ html.menu-is-open .menu-canvas-layer {
   background-position: center;
   position: relative;
   z-index: 10;
-  background-image: url(../images/banner/home-banner-bg.jpg);
+  background-image: url(../images/banner/home_3.jfif);
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rs-banner--slider-item {
@@ -3043,6 +3043,7 @@ html.menu-is-open .menu-canvas-layer {
   font-family: "Urbanist", sans-serif;
   letter-spacing: 0px;
   margin-right: 0px;
+  margin-top: 30px;
   color: #0a0a0a;
 }
 @media only screen and (max-width: 1800px) {
