@@ -40,174 +40,42 @@
                 </div>
             </div>
             <div class="row">
+                {% for member in teams %}
                 <div class="col-lg-3 col-sm-6">
                     <div class="rs-team-3__item mt-30">
                         <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_5.jpg' %}" alt="">
+                            <img src="{{ member.image.url }}" alt="{{ member.name }}">
                             <div class="rs-social">
                                 <div class="share-icon">
                                     <i class="ri-share-line"></i>
                                 </div>
                                 <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
+                                    {% if member.facebook_url %}
+                                    <li><a href="{{ member.facebook_url }}" target="_blank"><i class="ri-facebook-line"></i></a></li>
+                                    {% endif %}
+                                    {% if member.twitter_url %}
+                                    <li><a href="{{ member.twitter_url }}" target="_blank"><i class="ri-twitter-x-line"></i></a></li>
+                                    {% endif %}
+                                    {% if member.linkedin_url %}
+                                    <li><a href="{{ member.linkedin_url }}" target="_blank"><i class="ri-linkedin-line"></i></a></li>
+                                    {% endif %}
+                                    {% if member.instagram_url %}
+                                    <li><a href="{{ member.instagram_url }}" target="_blank"><i class="ri-instagram-line"></i></a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
                         <div class="rs-content">
-                            <a href="team-details.html"><span>John</span> Bradshaw</a>
-                            <span>Senior Advisor</span>
+                            <a href="#"><span>{{ member.name }}</span></a>
+                            <span>{{ member.designation }}</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_1.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Nick</span> Powel</a>
-                            <span>Leader</span>
-                        </div>
-                    </div>
+                {% empty %}
+                <div class="col-lg-12">
+                    <p class="text-center">No team members available at the moment.</p>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_2.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Elizabeth</span> Layla</a>
-                            <span>Designer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_4.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Paul</span> Walker</a>
-                            <span>Director</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_2.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Stephen</span> Larry</a>
-                            <span>Co, Founder</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_5.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>John </span> Bradshaw</a>
-                            <span>Senior Advisor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_7.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Patricia </span> Gable</a>
-                            <span>Marketing manager</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="rs-team-3__item mt-30">
-                        <div class="rs-thumb">
-                            <img src="{% static 'assets/images/team/team_img_6.jpg' %}" alt="">
-                            <div class="rs-social">
-                                <div class="share-icon">
-                                    <i class="ri-share-line"></i>
-                                </div>
-                                <ul>
-                                    <li><a href="#"><i class="ri-facebook-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-linkedin-line"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="rs-content">
-                            <a href="team-details.html"><span>Amber</span> Austin</a>
-                            <span>Operation Manager</span>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
