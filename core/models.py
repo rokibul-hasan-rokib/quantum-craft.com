@@ -72,7 +72,7 @@ class Blog(models.Model):
     content = models.TextField()
     excerpt = models.TextField(max_length=300)
     thumbnail = models.ImageField(upload_to='blog/thumbnails/')
-    author_name = models.CharField(max_length=100, default='QuantumCraft')
+    author_name = models.CharField(max_length=100, default='BongoCore')
     author_image = models.ImageField(upload_to='blog/authors/', blank=True, null=True) 
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='blogs')
     tags = models.ManyToManyField(Tag, blank=True, related_name='blogs')
