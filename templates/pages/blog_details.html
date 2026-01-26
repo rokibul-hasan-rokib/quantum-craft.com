@@ -1,6 +1,25 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
+    <!--======== Blog Details Banner Start =========-->
+    <section class="rs-page-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rs-page-banner__content">
+                        <h1 class="title">{{ blog.title }}</h1>
+                        <ul>
+                            <li><i class="ri-home-wifi-line"></i> <a href="{% url 'index' %}">Home</a></li>
+                            <li><i class="ri-arrow-right-fill"></i> <a href="{% url 'blog' %}">Blog</a></li>
+                            <li><i class="ri-arrow-right-fill"></i> {{ blog.title|truncatewords:5 }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--======== Blog Details Banner Ends ========-->
+
     <!--======== Blog Single Page Start =========-->
     <section class="rs-blog-single-page pt-80 pb-120">
         <div class="container">
@@ -8,160 +27,114 @@
                 <div class="col-lg-8">
                     <div class="rs-blog-single-page__content mt-40">
                         <div class="rs-thumb pb-45">
-                            <img src="{% static 'assets/images/blog/column-blog-7.jpg' %}" alt="">
+                            <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
                         </div>
-                        <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality.</p>
-                        <p class="mt-20">Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail.</p>
-                        <h2 class="title mt-45 pb-20">Our personal approach</h2>
-                        <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail.</p>
-                        <div class="row mb-20">
-                            <div class="col-lg-6">
-                                <div class="rs-thumb mt-20">
-                                    <img style="border-radius: 10px;" src="{% static 'assets/images/blog/blog-single-thumb-1.jpg' %}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mt-20">
-                                <div class="rs-thumb">
-                                    <img style="border-radius: 10px;" src="{% static 'assets/images/blog/blog-single-thumb-2.jpg' %}" alt="">
-                                </div>
-                            </div>
+                        
+                        <div class="rs-meta-box mb-30">
+                            <ul>
+                                <li><i class="ri-user-3-line"></i> {{ blog.author_name }}</li>
+                                <li><i class="ri-calendar-line"></i> {{ blog.created_at|date:"F d, Y" }}</li>
+                                {% if blog.category %}
+                                <li><a href="#"><i class="ri-price-tag-3-line"></i> {{ blog.category.name }}</a></li>
+                                {% endif %}
+                                <li><i class="ri-time-line"></i> {{ blog.read_time }}</li>
+                                <li><i class="ri-eye-line"></i> {{ blog.views }} views</li>
+                            </ul>
                         </div>
-                        <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from. Nanotechnology immersion along the information.</p>
-                        <div class="rs-quote-text">
-                            <p>“Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior.”</p>
-                            <span><span>- Jhon Henry</span> , CEO at Notero JSC </span>
+                        
+                        {% if blog.tags.exists %}
+                        <div class="rs-tags mb-30">
+                            <strong>Tags: </strong>
+                            {% for tag in blog.tags.all %}
+                            <span class="badge bg-secondary me-1">{{ tag.name }}</span>
+                            {% endfor %}
                         </div>
-                        <div class="rs-play">
-                            <img src="{% static 'assets/images/blog/blog-single-play.jpg' %}" alt="">
-                            <div class="play-icon">
-                                <a class="rs-popup-videos" href="https://www.youtube.com/watch?v=5CLmRIHR5Zw"><i class="fa fa-play"></i></a>
-                            </div>
+                        {% endif %}
+                        
+                        <div class="rs-excerpt mb-30">
+                            <p><strong>{{ blog.excerpt }}</strong></p>
                         </div>
-                        <h3 class="title mt-30 mb-20">Provide exclusive solutions</h3>
-                        <p>Podcasting operational change management inside of workflows to establish a framework, Taking seamless key performance indicators offline.</p>
-                        <ul>
-                            <li><i class="ri-share-forward-fill"></i> Everything in your industry that happens text with their software passage</li>
-                            <li><i class="ri-share-forward-fill"></i> Distribution patterns may not be as critical the text with their software</li>
-                            <li><i class="ri-share-forward-fill"></i> Analysis is part of good management history of lorem ipsum the text with their</li>
-                        </ul>
-                        <div class="rs-form">
-                            <h3 class="title">Leave a Reply</h3>
-                            <p>Your email address will not be published. Required fields are marked *</p>
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="input-box">
-                                            <input type="text" placeholder="Name*">
+                        
+                        <div class="rs-blog-content">
+                            {{ blog.content|linebreaks }}
+                        </div>
+                        
+                        {% if related_posts %}
+                        <div class="rs-related-posts mt-60">
+                            <h3 class="title mb-30">Related Posts</h3>
+                            <div class="row">
+                                {% for post in related_posts %}
+                                <div class="col-md-4">
+                                    <div class="rs-blog-item mb-30">
+                                        <div class="rs-thumb mb-20">
+                                            <a href="{% url 'blog_details' post.slug %}">
+                                                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 10px;">
+                                            </a>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="input-box">
-                                            <input type="email" placeholder="Email*">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="input-box">
-                                            <textarea name="#" id="#" placeholder="Comment*"></textarea>
-                                            <button class="main-btn" type="submit">Post Comment</button>
+                                        <div class="rs-content">
+                                            <h5 class="title mb-15">
+                                                <a href="{% url 'blog_details' post.slug %}">{{ post.title|truncatewords:8 }}</a>
+                                            </h5>
+                                            <p>{{ post.excerpt|truncatewords:12 }}</p>
+                                            <a href="{% url 'blog_details' post.slug %}" class="main-btn mt-15">Read More <i class="ri-arrow-right-fill"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                                {% endfor %}
+                            </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
+                
                 <div class="col-lg-4">
                     <div class="rs-blog-standard-page__sidebar mt-40">
                         <div class="rs-blog-search rs-blog-common">
-                            <form action="#">
-                                <div class="rs-search">
-                                    <input type="text" placeholder="Searching...">
-                                    <button class="main-btn" type="submit"><i class="ri-search-line"></i></button>
-                                </div>
+                            <h4 class="title">Search</h4>
+                            <form action="{% url 'blog' %}" method="get">
+                                <input type="text" name="search" placeholder="Search here...">
+                                <button type="submit"><i class="ri-search-line"></i></button>
                             </form>
                         </div>
+                        
+                        {% if categories %}
                         <div class="rs-blog-category rs-blog-common mt-40">
-                            <h4 class="rs-sidebar-title">Categories</h4>
+                            <h4 class="title">Categories</h4>
                             <ul>
-                                <li><a href="blog-single.html">Application <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Cyber <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Design <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Digital <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Software <i class="ri-arrow-right-fill"></i></a></li>
-                                <li><a href="blog-single.html">Technology <i class="ri-arrow-right-fill"></i></a></li>
+                                {% for category in categories %}
+                                <li><a href="#">{{ category.name }} <i class="ri-arrow-right-fill"></i></a></li>
+                                {% endfor %}
                             </ul>
                         </div>
-                        <div class="rs-blog-sidebar-post rs-blog-common mt-40">
-                            <h4 class="rs-sidebar-title">Recent Posts</h4>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-1.jpg' %}" alt=""></a>
+                        {% endif %}
+                        
+                        {% if recent_posts %}
+                        <div class="rs-blog-recent-post rs-blog-common mt-40">
+                            <h4 class="title">Recent Posts</h4>
+                            {% for post in recent_posts %}
+                            <div class="rs-item">
+                                <div class="thumb">
+                                    <a href="{% url 'blog_details' post.slug %}"><img src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a>
                                 </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">10 reliable sources to learn about it solution</a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-2.png' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html"> How do you become a graphic designer? </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
+                                <div class="content">
+                                    <h5 class="title"><a href="{% url 'blog_details' post.slug %}">{{ post.title|truncatewords:8 }}</a></h5>
+                                    <span><i class="ri-calendar-line"></i> {{ post.created_at|date:"M d, Y" }}</span>
                                 </div>
                             </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-3.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">Simple guidance for you in web development</a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item mb-25">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-4.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html">BongoCore App Development Complete Guide </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
-                            </div>
-                            <div class="rs-blog-sidebar-item">
-                                <div class="rs-thumb">
-                                    <a href="blog-single.html"><img src="{% static 'assets/images/blog/side-blog-5.jpg' %}" alt=""></a>
-                                </div>
-                                <div class="rs-content">
-                                    <h5 class="title"><a href="blog-single.html"> Tips to help you build your social media </a></h5>
-                                    <span><i class="ri-calendar-line"></i> March 21, 2023 </span>
-                                </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        {% if tags %}
+                        <div class="rs-blog-tag rs-blog-common mt-40">
+                            <h4 class="title">Popular Tags</h4>
+                            <div class="tags">
+                                {% for tag in tags %}
+                                <a href="#">{{ tag.name }}</a>
+                                {% endfor %}
                             </div>
                         </div>
-                        <div class="rs-blog-tags rs-blog-common mt-40">
-                            <h4 class="rs-sidebar-title">Tags</h4>
-                            <ul>
-                                <li><a href="#">App</a></li>
-                                <li><a href="#">Consulting</a></li>
-                                <li><a href="#">Cyber</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Development</a></li>
-                                <li><a href="#">Digital</a></li>
-                                <li><a href="#">Software</a></li>
-                                <li><a href="#">Technology</a></li>
-                            </ul>
-                        </div>
-                        <div class="rs-blog-social rs-blog-common mt-40">
-                            <h4 class="rs-sidebar-title">Tags</h4>
-                            <ul>
-                                <li><a href="#"><i class="ri-facebook-fill"></i></a></li>
-                                <li><a href="#"><i class="ri-twitter-x-fill"></i> </a></li>
-                                <li><a href="#"><i class="ri-pinterest-line"></i></a></li>
-                                <li><a href="#"><i class="ri-instagram-line"></i></a></li>
-                                <li><a href="#"><i class="ri-youtube-fill"></i></a></li>
-                            </ul>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

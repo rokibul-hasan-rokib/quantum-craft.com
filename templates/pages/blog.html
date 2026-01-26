@@ -29,7 +29,7 @@
                         {% for blog in blogs %}
                         <div class="rs-blog-standard-item mb-50">
                             <div class="rs-thumb">
-                                <a href="{% url 'blog_details' %}">
+                                <a href="{% url 'blog_details' blog.slug %}">
                                     <img src="{{ blog.thumbnail.url }}" alt="{{ blog.title }}">
                                 </a>
                                 <div class="rs-meta-box">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="rs-content">
-                                <h2 class="title"><a href="{% url 'blog_details' %}">{{ blog.title }}</a></h2>
+                                <h2 class="title"><a href="{% url 'blog_details' blog.slug %}">{{ blog.title }}</a></h2>
                                 <p>{{ blog.excerpt }}</p>
                                 {% if blog.tags.exists %}
                                 <div class="rs-tags mb-3">
@@ -54,7 +54,7 @@
                                 </div>
                                 {% endif %}
                                 <div class="rs-link">
-                                    <a class="main-btn-2" href="{% url 'blog_details' %}">Continue Reading <i class="ri-arrow-right-fill"></i></a>
+                                    <a class="main-btn-2" href="{% url 'blog_details' blog.slug %}">Continue Reading <i class="ri-arrow-right-fill"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -98,10 +98,10 @@
                             {% for post in recent_posts %}
                             <div class="rs-blog-sidebar-item {% if not forloop.last %}mb-25{% endif %}">
                                 <div class="rs-thumb">
-                                    <a href="{% url 'blog_details' %}"><img src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a>
+                                    <a href="{% url 'blog_details' post.slug %}"><img src="{{ post.thumbnail.url }}" alt="{{ post.title }}"></a>
                                 </div>
                                 <div class="rs-content">
-                                    <h5 class="title"><a href="{% url 'blog_details' %}">{{ post.title|truncatewords:8 }}</a></h5>
+                                    <h5 class="title"><a href="{% url 'blog_details' post.slug %}">{{ post.title|truncatewords:8 }}</a></h5>
                                     <span><i class="ri-calendar-line"></i> {{ post.created_at|date:"F d, Y" }} </span>
                                 </div>
                             </div>

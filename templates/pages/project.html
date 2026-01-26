@@ -33,7 +33,7 @@
                             <div class="rs-project-overlay">
                                 <div class="rs-project-content">
                                     <div class="rs-title">
-                                        <a href="#">{{ project.title }}</a>
+                                        <a href="{% url 'project_details' project.slug %}">{{ project.title }}</a>
                                     </div>
                                     <div class="rs-category">
                                         {% if project.category %}
@@ -45,11 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="rs-link">
-                                    {% if project.project_url %}
-                                    <a href="{{ project.project_url }}" target="_blank"><i class="ri-arrow-right-up-line"></i></a>
-                                    {% else %}
-                                    <a href="#"><i class="ri-arrow-right-up-line"></i></a>
-                                    {% endif %}
+                                    <a href="{% url 'project_details' project.slug %}"><i class="ri-arrow-right-up-line"></i></a>
                                 </div>
                             </div>
                         </div>

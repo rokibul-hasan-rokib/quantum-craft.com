@@ -1111,7 +1111,7 @@
                                 </a>
                             </div>
                             <h3 class="title">
-                                <a href="{% url 'blog_details' %}">{{ blog.title }}</a>
+                                <a href="{% url 'blog_details' blog.slug %}">{{ blog.title }}</a>
                             </h3>
                             <ul>
                                 <li>{{ blog.created_at|date:"M d, Y" }}</li>
@@ -1134,7 +1134,7 @@
                                     </a>
                                 </div>
                                 <div class="rs-link">
-                                    <a href="{% url 'blog_details' %}">Read Post <i class="ri-arrow-right-fill"></i></a>
+                                    <a href="{% url 'blog_details' blog.slug %}">Read Post <i class="ri-arrow-right-fill"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -563,7 +563,7 @@ hr {
   }
 }
 #pre-load {
-  background-color: #fff;
+  background-color: #e3f2fd;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -2101,10 +2101,7 @@ html.menu-is-open .menu-canvas-layer {
   }
 }
 .rs-footer__main-box {
-  background-image: url(../images/footer/footer_bg_icon.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+  background-color: #002559;
   padding-top: 100px;
   padding-bottom: 50px;
 }
@@ -2338,7 +2335,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 .rs-footer__copyright {
   padding: 30px 0;
-  background-image: url(../images/footer/footer_bg_icon.jpg);
+  background-image: url(../images/);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -2686,7 +2683,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 .rs-footer-4 .rs-footer__main-box {
   padding-top: 250px;
-  background-image: url(../images/footer/footer_4_bg.jpg);
+  background-image: url(../images/banner/home_3.jfif);
   padding-bottom: 0;
 }
 .rs-footer-4 .rs-footer__main-box .rs-footer__contact-info {

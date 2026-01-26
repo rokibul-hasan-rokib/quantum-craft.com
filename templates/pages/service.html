@@ -53,10 +53,10 @@
                                 <img src="{{ service.icon.url }}" alt="{{ service.title }}">
                             </div>
                             {% endif %}
-                            <h4 class="title"><a href="{% url 'service_details' %}">{{ service.title }}</a></h4>
+                            <h4 class="title"><a href="{% url 'service_details' service.slug %}">{{ service.title }}</a></h4>
                             <p>{{ service.description|truncatewords:15 }}</p>
                             <div class="rs-link">
-                                <a class="rs-link" href="{% url 'service_details' %}">Read More <i class="ri-arrow-right-fill"></i></a>
+                                <a class="rs-link" href="{% url 'service_details' service.slug %}">Read More <i class="ri-arrow-right-fill"></i></a>
                             </div>
                         </div>
                     </div>

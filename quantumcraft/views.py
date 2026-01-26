@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from core.models import Service, Blog, Team, Category, Tag, Project
 
 def index(request):
@@ -33,8 +33,24 @@ def blog(request):
     }
     return render(request, 'pages/blog.html', context)
 
-def blog_details(request):
-    return render(request, 'pages/blog_details.html')
+def blog_details(request, slug):
+    blog = get_object_or_404(Blog, slug=slug, is_published=True)
+    blog.views += 1
+    blog.save()
+    
+    recent_posts = Blog.objects.filter(is_published=True).exclude(id=blog.id).order_by('-created_at')[:5]
+    categories = Category.objects.all()
+    tags = Tag.objects.all()
+    related_posts = Blog.objects.filter(category=blog.category, is_published=True).exclude(id=blog.id)[:3]
+    
+    context = {
+        'blog': blog,
+        'recent_posts': recent_posts,
+        'categories': categories,
+        'tags': tags,
+        'related_posts': related_posts,
+    }
+    return render(request, 'pages/blog_details.html', context)
 
 def contact(request):
     return render(request, 'pages/contact.html')
@@ -55,10 +71,27 @@ def service(request):
     context = {'services': services}
     return render(request, 'pages/service.html', context)
 
-def service_details(request):
-    return render(request, 'pages/service_details.html')
+def service_details(request, slug):
+    service = get_object_or_404(Service, slug=slug, is_active=True)
+    all_services = Service.objects.filter(is_active=True).exclude(id=service.id)[:6]
+    
+    context = {
+        'service': service,
+        'all_services': all_services,
+    }
+    return render(request, 'pages/service_details.html', context)
 
 def team(request):
     teams = Team.objects.filter(is_active=True)
     context = {'teams': teams}
     return render(request, 'pages/team.html', context)
+
+def project_details(request, slug):
+    project = get_object_or_404(Project, slug=slug, is_active=True)
+    related_projects = Project.objects.filter(category=project.category, is_active=True).exclude(id=project.id)[:3]
+    
+    context = {
+        'project': project,
+        'related_projects': related_projects,
+    }
+    return render(request, 'pages/project_details.html', context)
