@@ -2102,6 +2102,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 .rs-footer__main-box {
   background-color: #002559;
+  background-image: url(../images/banner/home_3.jfif);
   padding-top: 100px;
   padding-bottom: 50px;
 }
@@ -2335,7 +2336,7 @@ html.menu-is-open .menu-canvas-layer {
 }
 .rs-footer__copyright {
   padding: 30px 0;
-  background-image: url(../images/);
+  background-image: url(../images/banner/home_3.jfif);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 100%;
