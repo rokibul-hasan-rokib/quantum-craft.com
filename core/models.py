@@ -164,3 +164,43 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    designation = models.CharField(max_length=100)
+    company = models.CharField(max_length=100, blank=True)
+    content = models.TextField()
+    image = models.ImageField(upload_to='testimonials/')
+    rating = models.IntegerField(default=5, choices=[(i, i) for i in range(1, 6)])
+    country_name = models.CharField(max_length=100, blank=True)
+    country_flag = models.ImageField(upload_to='testimonials/flags/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = 'Testimonial'
+        verbose_name_plural = 'Testimonials'
+
+    def __str__(self):
+        return f"{self.name} - {self.company}"
+
+
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='brands/')
+    logo_white = models.ImageField(upload_to='brands/', blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
+    display_order = models.IntegerField(default=100, help_text="Lower number = higher priority. Use 50, 100, 150 etc.")
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['display_order', 'name']
+        verbose_name = 'Brand/Client'
+        verbose_name_plural = 'Brands/Clients'
+
+    def __str__(self):
+        return self.name

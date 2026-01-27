@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Blog, Team, Category, Tag, ProjectCategory, Project
+from .models import Service, Blog, Team, Category, Tag, ProjectCategory, Project, Testimonial, Brand
 
 
 @admin.register(Category)
@@ -99,3 +99,21 @@ class ProjectAdmin(admin.ModelAdmin):
             'fields': ('is_featured', 'is_active', 'order')
         }),
     )
+
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ['name', 'company', 'designation', 'rating', 'order', 'is_active', 'created_at']
+    list_filter = ['is_active', 'rating', 'created_at']
+    search_fields = ['name', 'company', 'designation', 'content']
+    list_editable = ['order', 'is_active', 'rating']
+    ordering = ['order', '-created_at']
+
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ['name', 'display_order', 'is_active', 'created_at']
+    list_filter = ['is_active', 'created_at']
+    search_fields = ['name']
+    list_editable = ['display_order', 'is_active']
+    ordering = ['display_order', 'name']

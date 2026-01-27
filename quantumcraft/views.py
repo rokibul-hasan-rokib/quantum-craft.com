@@ -1,15 +1,21 @@
 from django.shortcuts import render, get_object_or_404
-from core.models import Service, Blog, Team, Category, Tag, Project
+from core.models import Service, Blog, Team, Category, Tag, Project, Testimonial, Brand
 
 def index(request):
-    services = Service.objects.filter(is_active=True)[:6]  # Latest 6 services for home
+    services = Service.objects.filter(is_active=True)[:4]  # First 4 services for home
     blogs = Blog.objects.filter(is_published=True)[:3]  # Latest 3 blogs for home
     teams = Team.objects.filter(is_active=True)[:6]  # Latest 6 team members for home
+    testimonials = Testimonial.objects.filter(is_active=True)  # All active testimonials
+    brands = Brand.objects.filter(is_active=True)  # All active brands/clients
+    projects = Project.objects.filter(is_active=True, is_featured=True)[:6]  # Featured projects for home
     
     context = {
         'services': services,
         'blogs': blogs,
         'teams': teams,
+        'testimonials': testimonials,
+        'brands': brands,
+        'projects': projects,
     }
     return render(request, 'pages/index.html', context)
 

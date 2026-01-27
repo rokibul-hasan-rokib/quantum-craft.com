@@ -117,42 +117,21 @@
     <div class="single-service pt-90 ">
         <div class="container">
             <div class="row">
+                {% for service in services %}
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-service__item">
                         <div class="single-service__icon">
+                            {% if service.icon %}
+                            <img src="{{ service.icon.url }}" alt="{{ service.title }}">
+                            {% else %}
                             <img src="{% static 'assets/images/service/service-icon.png' %}" alt="">
+                            {% endif %}
                         </div>
-                        <a href="#">IT Consultation</a>
-                        <p>Expert technology consulting to help you make strategic decisions and implement effective IT solutions.</p>
+                        <a href="{% url 'service_details' service.slug %}">{{ service.title }}</a>
+                        <p>{{ service.description|truncatewords:20 }}</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-service__item">
-                        <div class="single-service__icon">
-                            <img src="{% static 'assets/images/service/service-icon.png' %}" alt="">
-                        </div>
-                        <a href="#">Data Security</a>
-                        <p>Comprehensive cybersecurity solutions to protect your business data and ensure compliance with industry standards.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-service__item">
-                        <div class="single-service__icon">
-                            <img src="{% static 'assets/images/service/service-icon.png' %}" alt="">
-                        </div>
-                        <a href="#">Web Development</a>
-                        <p>Custom web applications and responsive websites built with modern technologies to enhance your online presence.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-service__item">
-                        <div class="single-service__icon">
-                            <img src="{% static 'assets/images/service/service-icon.png' %}" alt="">
-                        </div>
-                        <a href="#">Cloud Services</a>
-                        <p>Scalable cloud infrastructure solutions to optimize your operations and reduce IT costs.</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -273,7 +252,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="rs-featured__btn">
-                        <a class="main-btn" href="service-1.html"> View All Services <i class="ri-arrow-right-fill"></i></a>
+                        <a class="main-btn" href="{% url 'service' %}"> View All Services <i class="ri-arrow-right-fill"></i></a>
                     </div>
                 </div>
             </div>
@@ -713,23 +692,24 @@
                             <img src="{% static 'assets/images/heart-pulse-rate-white.svg' %}" alt="icon">
                         </div>
                         <h2 class="title split-in-fade">Our recent launched <span class="color">projects available</span> into market</h2>
-                        <a class="main-btn" href="project.html">View All Projects <i class="ri-arrow-right-fill"></i></a>
+                        <a class="main-btn" href="{% url 'project' %}">View All Projects <i class="ri-arrow-right-fill"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="rs-case-study__slider">
                         <div class="rs-carousel owl-carousel nav-style1" data-loop="true" data-items="2" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="true" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="2" data-lg-device="2" data-md-device-nav="true" data-md-device-dots="false" data-doteach="false">
+                            {% for project in projects %}
                             <div class="items">
                                 <div class="rs-case-study__slider-item">
-                                    <img src="{% static 'assets/images/case-study/Portfolio-3.jpg' %}" alt="">
+                                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
                                     <div class="rs-item-content">
-                                        <a href="project-details.html">
-                                            <h3 class="title">Graphic Design</h3>
-                                            <span>Graphic Testing</span>
+                                        <a href="{% url 'project_details' project.slug %}">
+                                            <h3 class="title">{{ project.title }}</h3>
+                                            <span>{{ project.category.name }}</span>
                                         </a>
                                     </div>
                                     <div class="rs-item-link">
-                                        <a href="project-details.html">
+                                        <a href="{% url 'project_details' project.slug %}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 18 18" fill="none">
                                                 <path d="M15.0052 5.11205L2.11729 18L0 15.8827L12.8864 2.99476H1.52883V0H18V16.4712H15.0052V5.11205Z" fill="#F26F20"></path>
                                             </svg>
@@ -737,42 +717,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="items">
-                                <div class="rs-case-study__slider-item">
-                                    <img src="{% static 'assets/images/case-study/Portfolio-2.jpg' %}" alt="">
-                                    <div class="rs-item-content">
-                                        <a href="project-details.html">
-                                            <h3 class="title">Web Design</h3>
-                                            <span>Graphic Testing</span>
-                                        </a>
-                                    </div>
-                                    <div class="rs-item-link">
-                                        <a href="project-details.html">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 18 18" fill="none">
-                                                <path d="M15.0052 5.11205L2.11729 18L0 15.8827L12.8864 2.99476H1.52883V0H18V16.4712H15.0052V5.11205Z" fill="#F26F20"></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="items">
-                                <div class="rs-case-study__slider-item">
-                                    <img src="{% static 'assets/images/case-study/Portfolio-1.jpg' %}" alt="">
-                                    <div class="rs-item-content">
-                                        <a href="project-details.html">
-                                            <h3 class="title">Product Design</h3>
-                                            <span>Graphic Testing</span>
-                                        </a>
-                                    </div>
-                                    <div class="rs-item-link">
-                                        <a href="project-details.html">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 18 18" fill="none">
-                                                <path d="M15.0052 5.11205L2.11729 18L0 15.8827L12.8864 2.99476H1.52883V0H18V16.4712H15.0052V5.11205Z" fill="#F26F20"></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -801,6 +746,7 @@
                 <div class="col-lg-3"></div>
             </div>
             <div class="rs-carousel owl-carousel nav-style1" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-hoverpause="false" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="true" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="2" data-lg-device="3" data-md-device-nav="true" data-md-device-dots="false" data-doteach="false">
+                {% for testimonial in testimonials %}
                 <div class="rs-testimonial__item">
                     <div class="rs-testimonial-content-box">
                         <p>Worldwide phosfluorescently engage  methodologies with in web-enabled technology. Interactively coordinate proactive e-commerce via.</p>
@@ -813,114 +759,24 @@
                     </div>
                     <div class="rs-testimonial-user">
                         <div class="thumb">
-                            <img src="{% static 'assets/images/testimonial/testi1.jpg' %}" alt="">
+                            <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
                         </div>
                         <div class="content">
-                            <h4 class="title">Matthew Taylor</h4>
-                            <span>SEO & Founder, Facebook</span>
+                            <h4 class="title">{{ testimonial.name }}</h4>
+                            <span>{{ testimonial.designation }}{% if testimonial.company %}, {{ testimonial.company }}{% endif %}</span>
+                            {% if testimonial.country_name %}
                             <div class="country">
-                                <img src="{% static 'assets/images/testimonial/flag-1.jpg' %}" alt="">
-                                <span> New York, USA</span>
+                                {% if testimonial.country_flag %}
+                                <img src="{{ testimonial.country_flag.url }}" alt="{{ testimonial.country_name }}">
+                                {% endif %}
+                                <span>{{ testimonial.country_name }}</span>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                <div class="rs-testimonial__item">
-                    <div class="rs-testimonial-content-box">
-                        <p>Engage worldwide phosfluorescently methodologies with in web-enabled technology. Interactively coordinate proactive e-commerce via.</p>
-                        <div class="rs-ratings">
-                            <img src="{% static 'assets/images/testimonial/rating-1.png' %}" alt="">
-                        </div>
-                        <div class="rs-quote">
-                            <img src="{% static 'assets/images/testimonial/quote-white.svg' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="rs-testimonial-user">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/testimonial/testi2.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <h4 class="title">Lynda Robards</h4>
-                            <span>Company SEO, Google</span>
-                            <div class="country">
-                                <img src="{% static 'assets/images/testimonial/flag-2.jpg' %}" alt="">
-                                <span>Canada</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rs-testimonial__item">
-                    <div class="rs-testimonial-content-box">
-                        <p>Worldwide engage phosfluorescently methodologies with in web-enabled technology. Interactively coordinate proactive e-commerce via.</p>
-                        <div class="rs-ratings">
-                            <img src="{% static 'assets/images/testimonial/rating-1.png' %}" alt="">
-                        </div>
-                        <div class="rs-quote">
-                            <img src="{% static 'assets/images/testimonial/quote-white.svg' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="rs-testimonial-user">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/testimonial/testi3.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <h4 class="title">Esther Howard</h4>
-                            <span>CEO & Founder</span>
-                            <div class="country">
-                                <img src="{% static 'assets/images/testimonial/flag-3.jpg' %}" alt="">
-                                <span>Donkey Town, UK</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rs-testimonial__item">
-                    <div class="rs-testimonial-content-box">
-                        <p>Phosfluorescently worldwide engage methodologies with in web-enabled technology. Interactively coordinate proactive e-commerce via.</p>
-                        <div class="rs-ratings">
-                            <img src="{% static 'assets/images/testimonial/rating-1.png' %}" alt="">
-                        </div>
-                        <div class="rs-quote">
-                            <img src="{% static 'assets/images/testimonial/quote-white.svg' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="rs-testimonial-user">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/testimonial/testi4.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <h4 class="title">Ana Martins</h4>
-                            <span>CEO, Bribbble LLC</span>
-                            <div class="country">
-                                <img src="{% static 'assets/images/testimonial/flag-4.jpg' %}" alt="">
-                                <span>  Madrid, Spain</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rs-testimonial__item">
-                    <div class="rs-testimonial-content-box">
-                        <p>Phosfluorescently engage worldwide methodologies with in web-enabled technology. Interactively coordinate proactive e-commerce via.</p>
-                        <div class="rs-ratings">
-                            <img src="{% static 'assets/images/testimonial/rating-1.png' %}" alt="">
-                        </div>
-                        <div class="rs-quote">
-                            <img src="{% static 'assets/images/testimonial/quote-white.svg' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="rs-testimonial-user">
-                        <div class="thumb">
-                            <img src="{% static 'assets/images/testimonial/testi5.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <h4 class="title">Nicolas Ribeiro</h4>
-                            <span>HR, Envato</span>
-                            <div class="country">
-                                <img src="{% static 'assets/images/testimonial/flag-5.jpg' %}" alt="">
-                                <span>Sydney, Australia</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+
             </div>
         </div>
     </section>
@@ -942,54 +798,16 @@
                 <div class="col-lg-12">
                     <div class="rs-brand__slider">
                         <div class="rs-carousel owl-carousel nav-style1" data-loop="true" data-items="5" data-margin="0" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="3000" data-smart-speed="500" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="3" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4" data-lg-device="5" data-md-device-nav="false" data-md-device-dots="false" data-doteach="false">
+                            {% for brand in brands %}
                             <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner1.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-1.png' %}" alt="">
+                                <a href="{% if brand.url %}{{ brand.url }}{% else %}#{% endif %}" {% if brand.url %}target="_blank"{% endif %}>
+                                    <img src="{{ brand.logo.url }}" alt="{{ brand.name }}">
+                                    {% if brand.logo_white %}
+                                    <img class="item-2" src="{{ brand.logo_white.url }}" alt="{{ brand.name }}">
+                                    {% endif %}
                                 </a>
                             </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner2.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-2.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner3.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-3.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner4.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-4.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner5.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-5.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner6.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-6.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner7.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-7.png' %}" alt="">
-                                </a>
-                            </div>
-                            <div class="rs-brand-slider-item">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/brand/partner8.png' %}" alt="">
-                                    <img class="item-2" src="{% static 'assets/images/brand/partner-white-8.png' %}" alt="">
-                                </a>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

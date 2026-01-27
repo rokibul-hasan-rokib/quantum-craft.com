@@ -1,0 +1,32 @@
+            <div class="rs-carousel owl-carousel nav-style1" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-hoverpause="false" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="true" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="true" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="2" data-lg-device="3" data-md-device-nav="true" data-md-device-dots="false" data-doteach="false">
+                {% for testimonial in testimonials %}
+                <div class="rs-testimonial__item">
+                    <div class="rs-testimonial-content-box">
+                        <p>{{ testimonial.content }}</p>
+                        <div class="rs-ratings">
+                            <img src="{% static 'assets/images/testimonial/rating-1.png' %}" alt="">
+                        </div>
+                        <div class="rs-quote">
+                            <img src="{% static 'assets/images/testimonial/quote-white.svg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="rs-testimonial-user">
+                        <div class="thumb">
+                            <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+                        </div>
+                        <div class="content">
+                            <h4 class="title">{{ testimonial.name }}</h4>
+                            <span>{{ testimonial.designation }}{% if testimonial.company %}, {{ testimonial.company }}{% endif %}</span>
+                            {% if testimonial.country_name %}
+                            <div class="country">
+                                {% if testimonial.country_flag %}
+                                <img src="{{ testimonial.country_flag.url }}" alt="{{ testimonial.country_name }}">
+                                {% endif %}
+                                <span>{{ testimonial.country_name }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
