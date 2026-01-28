@@ -32,7 +32,7 @@
                         <div class="rs-about__play-box">
                             <span>Intro</span>
                             <div class="play-icon">
-                                <a class="rs-popup-videos" href="https://www.youtube.com/watch?v=5CLmRIHR5Zw"><i class="fa fa-play"></i></a>
+                                <a class="rs-popup-videos" href="{% if about and about.video_url %}{{ about.video_url }}{% else %}https://www.youtube.com/watch?v=5CLmRIHR5Zw{% endif %}"><i class="fa fa-play"></i></a>
                             </div>
                         </div>
                         <div class="rs-about__countdown-box">
@@ -40,7 +40,7 @@
                                 <img src="{% static 'assets/images/about/count-down-experience-icon.svg' %}" alt="">
                             </div>
                             <div class="coundown-text">
-                                <span><span class="rs-count" >25</span>+</span>
+                                <span><span class="rs-count" >{% if about %}{{ about.years_experience }}{% else %}25{% endif %}</span>+</span>
                                 <h4 class="title"> Years Experience</h4>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                             <span>Who We Are</span>
                             <img src="{% static 'assets/images/heart-pulse-rate-orange.svg' %}" alt="icon">
                         </div>
-                        <h2 class="title split-in-fade">We deliver cutting-edge IT solutions & technology for growing businesses.</h2>
-                        <p>BongoCore specializes in custom software development, cloud infrastructure, and digital transformation services. Our expert team helps businesses leverage technology to achieve their goals and stay competitive in the digital landscape.</p>
+                        <h2 class="title split-in-fade">{% if about and about.title %}{{ about.title }}{% else %}We deliver cutting-edge IT solutions & technology for growing businesses.{% endif %}</h2>
+                        <p>{% if about and about.description %}{{ about.description|safe }}{% else %}BongoCore specializes in custom software development, cloud infrastructure, and digital transformation services. Our expert team helps businesses leverage technology to achieve their goals and stay competitive in the digital landscape.{% endif %}</p>
                         <ul>
                             <li>
                                 <div class="icon">

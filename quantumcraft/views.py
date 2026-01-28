@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from core.models import Service, Blog, Team, Category, Tag, Project, Testimonial, Brand
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from core.models import Service, Blog, Team, Category, Tag, Project, Testimonial, Brand, About, FAQ, Contact, Appointment
 
 def index(request):
     services = Service.objects.filter(is_active=True)[:4]  # First 4 services for home
@@ -20,9 +21,34 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html')
+    about_content = About.objects.filter(is_active=True).first()
+    context = {
+        'about': about_content,
+    }
+    return render(request, 'pages/about.html', context)
 
 def appointment(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        service = request.POST.get('service', '')
+        message = request.POST.get('message', '')
+        
+        Appointment.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            date=date,
+            time=time,
+            service=service,
+            message=message
+        )
+        messages.success(request, 'Your appointment request has been submitted successfully!')
+        return redirect('appointment')
+    
     return render(request, 'pages/appointment.html')
 
 def blog(request):
@@ -59,10 +85,31 @@ def blog_details(request, slug):
     return render(request, 'pages/blog_details.html', context)
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone', '')
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message')
+        
+        Contact.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            subject=subject,
+            message=message
+        )
+        messages.success(request, 'Your message has been sent successfully!')
+        return redirect('contact')
+    
     return render(request, 'pages/contact.html')
 
 def faq(request):
-    return render(request, 'pages/faq.html')
+    faqs = FAQ.objects.filter(is_active=True)
+    context = {
+        'faqs': faqs,
+    }
+    return render(request, 'pages/faq.html', context)
 
 def pricing(request):
     return render(request, 'pages/pricing.html')

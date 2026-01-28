@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Blog, Team, Category, Tag, ProjectCategory, Project, Testimonial, Brand
+from .models import Service, Blog, Team, Category, Tag, ProjectCategory, Project, Testimonial, Brand, About, FAQ, Contact, Appointment
 
 
 @admin.register(Category)
@@ -117,3 +117,40 @@ class BrandAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_editable = ['display_order', 'is_active']
     ordering = ['display_order', 'name']
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ['title', 'years_experience', 'is_active', 'created_at']
+    list_filter = ['is_active']
+    search_fields = ['title', 'description']
+    list_editable = ['is_active']
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['question', 'order', 'is_active', 'created_at']
+    list_filter = ['is_active', 'created_at']
+    search_fields = ['question', 'answer']
+    list_editable = ['order', 'is_active']
+    ordering = ['order', '-created_at']
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'phone', 'subject', 'is_read', 'created_at']
+    list_filter = ['is_read', 'created_at']
+    search_fields = ['name', 'email', 'subject', 'message']
+    list_editable = ['is_read']
+    ordering = ['-created_at']
+    readonly_fields = ['name', 'email', 'phone', 'subject', 'message', 'created_at']
+
+
+@admin.register(Appointment)
+class AppointmentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'phone', 'date', 'time', 'status', 'created_at']
+    list_filter = ['status', 'date', 'created_at']
+    search_fields = ['name', 'email', 'phone', 'service']
+    list_editable = ['status']
+    ordering = ['-created_at']
+    readonly_fields = ['name', 'email', 'phone', 'date', 'time', 'service', 'message', 'created_at']
